@@ -7,6 +7,7 @@
         android:layout_width="match_parent"
         android:paddingTop="30dp"
         android:paddingBottom="35dp"
+        android:paddingHorizontal="30dp"
         android:background="@drawable/inset_drawable"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -61,7 +62,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnGetUnlimited"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/rounded_corner_white_background"
             android:backgroundTint="@color/dialog_button_color"
@@ -77,7 +78,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnWatchAds"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/rounded_corner_white_background"
             android:backgroundTint="@color/primary"

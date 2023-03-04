@@ -1,4 +1,64 @@
 <resources>
     <string name="app_name">CHATGDT</string>
     <string name="remaining_messages">remaining messages</string>
+
+    <string name="edu_title_1">Create short essays</string>
+    <string name="edu_desc_1">An essay is created specially for you</string>
+
+    <string name="edu_title_2">Paraphrase a passage</string>
+    <string name="edu_desc_2">Write your passage in other way with the same meaning</string>
+
+    <string name="edu_title_3">Correct your text</string>
+    <string name="edu_desc_3">Check any text for spelling and grammatical mistakes</string>
+
+    <string name="edu_title_4">Check code</string>
+    <string name="edu_desc_4">Find error in any code</string>
+
+    <string name="edu_title_5">Extract keyword in a passage</string>
+    <string name="edu_desc_5">Make a list of most important work in a text</string>
+
+    <string name="ent_title_1">Create a social post</string>
+    <string name="ent_desc_1">Describe your topic</string>
+
+    <string name="ent_title_2">Prepare for a party</string>
+    <string name="ent_desc_2">Suggest activity in a hang-out with your friend</string>
+
+    <string name="ent_title_3">Convert text into emoji</string>
+    <string name="ent_desc_3">Describe the emoji you need</string>
+
+    <string name="ent_title_4">Suggest something to entertain</string>
+    <string name="ent_desc_4">Ask me if you cannot choose a movie to watch while having a meal</string>
+
+    <string name="ent_title_5">Compose a song</string>
+    <string name="ent_desc_5">Write a song\'s lyric on any topic</string>
+
+    <string name="idea_title_1">Create name for anything</string>
+    <string name="idea_desc_1">Create name for your product, pet or anything</string>
+
+    <string name="idea_title_2">Become a writer</string>
+    <string name="idea_desc_2">Write a story about anything</string>
+
+    <string name="idea_title_3">Become a outstanding marketer</string>
+    <string name="idea_desc_3">SEO writing, create script for promotion</string>
+
+    <string name="idea_title_4">Innovative idea for startup</string>
+    <string name="idea_desc_4">Get a list of idea for start up</string>
+
+    <string name="idea_title_5">Promote your product</string>
+    <string name="idea_desc_5">You have innovative idea but how to make your product to the world?</string>
+
+    <string name="health_title_1">Build your own workout routine</string>
+    <string name="health_desc_1">Get a fitness program made especially for you</string>
+
+    <string name="health_title_2">Discover how many calories in food</string>
+    <string name="health_desc_2">Name your food and describe how much quantity you eat</string>
+
+    <string name="health_title_3">How many calories you burn everyday</string>
+    <string name="health_desc_3">Describe your activity in a day</string>
+
+    <string name="health_title_4">Eat healthy meals</string>
+    <string name="health_desc_4">Get a list of healthy meals</string>
+
+    <string name="health_title_5">Drink water and stay hydrated</string>
+    <string name="health_desc_5">Get tips about water for staying hydrated</string>
 </resources>

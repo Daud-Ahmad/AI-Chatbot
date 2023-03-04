@@ -1,14 +1,15 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
-    namespace 'com.example.chatgpt'
+    namespace 'com.openaibot.gpt.chat'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.chatgpt"
+        applicationId "com.openaibot.gpt.chat"
         minSdk 21
         targetSdk 33
         versionCode 1
@@ -53,6 +54,12 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.github.bumptech.glide:glide:4.13.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
+    //room
+    def room_version = "2.5.0"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    androidTestImplementation "androidx.room:room-testing:$room_version"
 
     implementation "com.android.billingclient:billing:5.1.0"
 }

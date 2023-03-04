@@ -42,16 +42,17 @@
 
                     <LinearLayout
                         android:id="@+id/lolProfile"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
                         android:background="@drawable/rectangle"
                         android:backgroundTint="@color/black"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:src="@drawable/ic_person"
                             app:tint="@color/white" />
 
@@ -108,18 +109,17 @@
 
                     <LinearLayout
                         android:id="@+id/lolProfileView"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:background="@drawable/rectangle"
-                        android:backgroundTint="@color/primary"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:background="@drawable/rectangle_selected1"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_person"
-                            app:tint="@color/white" />
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@mipmap/ic_launcher"/>
 
                     </LinearLayout>
 

@@ -14,4 +14,6 @@
     <color name="extraLightGrey">#cccccc</color>
     <color name="dialog_button_color">#10DAD9</color>
 
+    <color name="answer_profile">#F0F0F0</color>
+
 </resources>
