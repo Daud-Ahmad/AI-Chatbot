@@ -12,7 +12,7 @@ import com.openaibot.gpt.chat.databinding.ActivityHistoryBinding;
 import com.openaibot.gpt.chat.ui.adapters.HistoryAdapter1;
 import com.openaibot.gpt.chat.utils.Ads;
 
-public class HistoryActivity extends AppCompatActivity {
+public class HistoryActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,5 +29,11 @@ public class HistoryActivity extends AppCompatActivity {
 
     public void onBtnBack(View view){
         finish();
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        checkUpdate();
     }
 }

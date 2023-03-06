@@ -39,7 +39,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ChatActivity extends AppCompatActivity {
+public class ChatActivity extends BaseActivity {
 
     private ActivityChatBinding binding;
     private final ArrayList<ChatScreenModel> arrayList = new ArrayList<>();
@@ -80,11 +80,18 @@ public class ChatActivity extends AppCompatActivity {
             binding.colExample.setVisibility(View.GONE);
         }
 
+        int rating = Integer.parseInt(SharePreferences.getString(this, Constants.RATING_KEY));
+        if(rating % 5 == 0){
+            askRatings();
+        }
+
+
     }
 
     @Override
     protected void onPostResume() {
         super.onPostResume();
+        checkUpdate();
         String coins = Constants.totalCoins + " " + getString(R.string.remaining_messages);
         binding.lblCoins.setText(coins);
     }

@@ -3,6 +3,7 @@ package com.openaibot.gpt.chat.utils;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -16,11 +17,15 @@ import com.openaibot.gpt.chat.R;
 import com.openaibot.gpt.chat.SharePreferences;
 import com.openaibot.gpt.chat.databinding.DialogueCoinBinding;
 import com.openaibot.gpt.chat.databinding.DialogueLoadingBinding;
+import com.openaibot.gpt.chat.databinding.DialogueUpdateBinding;
+import com.openaibot.gpt.chat.ui.HomeActivity;
 import com.openaibot.gpt.chat.ui.PackagesActivity;
 
 public class AlertDialogueUtils {
     private static AlertDialog alertDialogMessage;
     private static AlertDialog loadingDialog;
+
+    private static AlertDialog updateDialog;
 
     public static void showCoinsAlert(
             View.OnClickListener unlimitedListener ,
@@ -55,6 +60,24 @@ public class AlertDialogueUtils {
         }
     }
 
+    public static void showUpdateAlert(
+            View.OnClickListener updateListener ,
+            Activity activity)
+    {
+        if(!activity.isFinishing()) {
+            DialogueUpdateBinding customAlertDialogueBinding = DialogueUpdateBinding.inflate(LayoutInflater.from(activity));
+            AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.MyDialogStyleNew);
+            builder.setView(customAlertDialogueBinding.getRoot());
+            customAlertDialogueBinding.btnUpdate.setOnClickListener(updateListener);
+            updateDialog = builder.create();
+            updateDialog.setCancelable(false);
+            updateDialog.setCanceledOnTouchOutside(false);
+            if (activity != null && !activity.isFinishing()) {
+                updateDialog.show();
+            }
+        }
+    }
+
     public static void showLoadingAlert(
             Activity activity)
     {
@@ -85,6 +108,14 @@ public class AlertDialogueUtils {
         if(loadingDialog!=null && loadingDialog.isShowing())
         {
             loadingDialog.dismiss();
+        }
+    }
+
+    public static void hideUpdateDialogue()
+    {
+        if(updateDialog!=null && updateDialog.isShowing())
+        {
+            updateDialog.dismiss();
         }
     }
 

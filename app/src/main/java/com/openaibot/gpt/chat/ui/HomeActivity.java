@@ -1,6 +1,7 @@
 package com.openaibot.gpt.chat.ui;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
@@ -23,7 +24,7 @@ import com.openaibot.gpt.chat.utils.Constants;
 
 import java.util.ArrayList;
 
-public class HomeActivity extends AppCompatActivity implements GenresAdapter.CallBack {
+public class HomeActivity extends BaseActivity implements GenresAdapter.CallBack {
 
     private ActivityHomeBinding binding;
     private HistoryAdapter historyAdapter;
@@ -58,6 +59,8 @@ public class HomeActivity extends AppCompatActivity implements GenresAdapter.Cal
         binding.rvGenres.setAdapter(new GenresAdapter(arrayList,this, this));
 
         initTaskViewData(0);
+
+        askRatings();
     }
 
     public void onClickCoins(View view){
@@ -249,6 +252,9 @@ public class HomeActivity extends AppCompatActivity implements GenresAdapter.Cal
     @Override
     protected void onPostResume() {
         super.onPostResume();
+
+        checkUpdate();
+
         String coins = Constants.totalCoins + " " + getString(R.string.remaining_messages);
         binding.lblCoins.setText(coins);
         if(Constants.historyModelArrayList.size() == 0){
