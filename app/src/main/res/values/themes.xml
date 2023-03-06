@@ -17,4 +17,17 @@
     <style name="MyDialogStyleNew" parent="Theme.AppCompat.Dialog.Alert">
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
+
+    <style name="Theme.ChatGPT.AdAttributionNew">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">start</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:text">AD</item>
+        <item name="android:background">@drawable/grnativeadattributenew</item>
+        <item name="android:width">22dp</item>
+        <item name="android:height">22dp</item>
+    </style>
 </resources>

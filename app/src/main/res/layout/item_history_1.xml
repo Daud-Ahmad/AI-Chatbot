@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -27,7 +28,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/crdQst"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="wrap_content"
                 app:cardBackgroundColor="@color/gray"
                 android:layout_marginTop="10dp"
                 android:elevation="5dp"
@@ -76,11 +77,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="How to earn $1000 in Pakistan. How to earn $1000 in Pakistan. How to earn $1000 in Pakistan. How to earn $1000 in Pakistan"
+                        tools:text="How to earn $1000 in Pakistan. How to earn $1000 in Pakistan. How to earn $1000 in Pakistan. How to earn $1000 in Pakistan"
                         android:textSize="13sp"
                         android:layout_marginBottom="20dp"
-                        android:maxLines="3"
-                        android:ellipsize="end"
                         app:layout_constraintTop_toBottomOf="@+id/lolProfile"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"/>
@@ -92,7 +91,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/crdAns"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="wrap_content"
                 app:cardBackgroundColor="@color/light_primary"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
@@ -137,6 +136,7 @@
                         app:layout_constraintStart_toEndOf="@+id/lolProfileView"/>
 
                     <ImageButton
+                        android:id="@+id/btnCopy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/baseline_file_copy"
@@ -150,11 +150,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="How to earn $1000 in Pakistan. How to earn $1000 in Pakistan. How to earn $1000 in Pakistan. How to earn $1000 in Pakistan"
+                        tools:text="How to earn $1000 in Pakistan. How to earn $1000 in Pakistan. How to earn $1000 in Pakistan. How to earn $1000 in Pakistan"
                         android:textSize="13sp"
                         android:layout_marginBottom="20dp"
-                        android:maxLines="3"
-                        android:ellipsize="end"
                         app:layout_constraintTop_toBottomOf="@+id/lolProfileView"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"/>

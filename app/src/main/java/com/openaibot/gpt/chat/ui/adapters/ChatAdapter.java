@@ -1,6 +1,9 @@
 package com.openaibot.gpt.chat.ui.adapters;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +17,7 @@ import com.openaibot.gpt.chat.R;
 import com.openaibot.gpt.chat.databinding.ItemChatBinding;
 import com.openaibot.gpt.chat.databinding.ItemHistoryBinding;
 import com.openaibot.gpt.chat.models.ChatScreenModel;
+import com.openaibot.gpt.chat.utils.Constants;
 
 import java.util.ArrayList;
 
@@ -85,6 +89,27 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.DataViewHolder
                 itemGenresBinding.imgProfile.setImageDrawable(AppCompatResources.getDrawable(context, R.mipmap.ic_launcher));
                 itemGenresBinding.crdParent.setCardBackgroundColor(AppCompatResources.getColorStateList(context, R.color.light_primary));
             }
+
+            itemGenresBinding.btnCopy.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String value = arrayList.get(position).getLabelText();
+                    ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("label", value);
+                    clipboard.setPrimaryClip(clip);
+                }
+            });
+
+            itemGenresBinding.btnForward.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String value = arrayList.get(position).getLabelText();
+                    Intent intent = new Intent("android.intent.action.SEND");
+                    intent.setType("text/plain");
+                    intent.putExtra("android.intent.extra.TEXT", value);
+                    context.startActivity(Intent.createChooser(intent, "Share Via"));
+                }
+            });
         }
     }
 }

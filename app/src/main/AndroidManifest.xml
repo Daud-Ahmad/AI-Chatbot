@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
         android:allowBackup="true"
@@ -15,10 +17,13 @@
         android:theme="@style/Theme.ChatGPT"
         tools:targetApi="31">
         <activity
-            android:name="com.openaibot.gpt.chat.ui.HistoryActivity"
+            android:name=".ui.PackagesActivity"
             android:exported="false" />
         <activity
-            android:name="com.openaibot.gpt.chat.ui.SplashActivity"
+            android:name=".ui.HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,11 +32,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.openaibot.gpt.chat.ui.HomeActivity"
+            android:name=".ui.HomeActivity"
             android:exported="false" />
         <activity
-            android:name="com.openaibot.gpt.chat.ui.ChatActivity"
+            android:name=".ui.ChatActivity"
             android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/app_id" />
+
+        <service
+            android:name=".ui.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

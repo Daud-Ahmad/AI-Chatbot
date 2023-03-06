@@ -4,18 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
-import com.openaibot.gpt.chat.utils.Constants;
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.FullScreenContentCallback;
 import com.openaibot.gpt.chat.R;
 import com.openaibot.gpt.chat.databinding.ActivityHomeBinding;
 import com.openaibot.gpt.chat.models.GenresModel;
 import com.openaibot.gpt.chat.ui.adapters.GenresAdapter;
 import com.openaibot.gpt.chat.ui.adapters.HistoryAdapter;
+import com.openaibot.gpt.chat.utils.Ads;
 import com.openaibot.gpt.chat.utils.AlertDialogueUtils;
+import com.openaibot.gpt.chat.utils.Constants;
 
 import java.util.ArrayList;
 
@@ -32,6 +36,8 @@ public class HomeActivity extends AppCompatActivity implements GenresAdapter.Cal
         Glide.with(this)
                 .load(R.drawable.gift)
                 .into(binding.gift);
+
+        Ads.loadNativeAds(this, binding.nativeAdPlaceHolder);
 
         binding.rvHistory.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         historyAdapter = new HistoryAdapter(this);
@@ -52,90 +58,192 @@ public class HomeActivity extends AppCompatActivity implements GenresAdapter.Cal
         binding.rvGenres.setAdapter(new GenresAdapter(arrayList,this, this));
 
         initTaskViewData(0);
+    }
 
-//        billingClient.startConnection(new BillingClientStateListener() {
-//            @Override
-//            public void onBillingSetupFinished(@NonNull BillingResult billingResult) {
-//                if (billingResult.getResponseCode() ==  BillingClient.BillingResponseCode.OK) {
-//                    QueryProductDetailsParams queryProductDetailsParams =
-//                            QueryProductDetailsParams.newBuilder()
-//                                    .setProductList(
-//                                            ImmutableList.of(
-//                                                    QueryProductDetailsParams.Product.newBuilder()
-//                                                            .setProductId("product_id_example")
-//                                                            .setProductType(BillingClient.ProductType.INAPP)
-//                                                            .build()))
-//                                    .build();
-//
-//                    billingClient.queryProductDetailsAsync(
-//                            queryProductDetailsParams,
-//                            new ProductDetailsResponseListener() {
-//                                public void onProductDetailsResponse(@NonNull BillingResult billingResult,
-//                                                                     @NonNull List<ProductDetails> productDetailsList) {
-//                                    // check billingResult
-//                                    // process returned productDetailsList
-//                                }
-//                            }
-//                    );
-//                }
-//            }
-//            @Override
-//            public void onBillingServiceDisconnected() {
-//                // Try to restart the connection on the next request to
-//                // Google Play by calling the startConnection() method.
-//            }
-//        });
+    public void onClickCoins(View view){
+        AlertDialogueUtils.onClickCoins(this, binding.lblCoins);
     }
 
 
     public void onClickMore(View view){
-        startActivity(new Intent(this, HistoryActivity.class));
+        Constants.interShowCounter++;
+        if (Ads.mInterstitialAd != null && Constants.interShowCounter % Constants.counter == 0) {
+            Ads.mInterstitialAd.show(this);
+            Ads.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                @Override
+                public void onAdDismissedFullScreenContent() {
+                    Ads.mInterstitialAd = null;
+                    Ads.loadInterstitialAd(HomeActivity.this);
+                    startActivity(new Intent(HomeActivity.this, HistoryActivity.class));
+                }
+
+                @Override
+                public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
+                }
+
+                @Override
+                public void onAdShowedFullScreenContent() {
+                    Ads.mInterstitialAd = null;
+                }
+            });
+
+        } else {
+            startActivity(new Intent(HomeActivity.this, HistoryActivity.class));
+        }
     }
 
 
     public void onCrdChoose1(View view){
-        startActivity(new Intent(this, ChatActivity.class)
-                .putExtra("title", binding.lblTitle1.getText().toString())
-                .putExtra("desc", binding.lblMsg1.getText().toString()));
+        Constants.interShowCounter++;
+        if (Ads.mInterstitialAd != null && Constants.interShowCounter % Constants.counter == 0) {
+            Ads.mInterstitialAd.show(this);
+            Ads.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                @Override
+                public void onAdDismissedFullScreenContent() {
+                    Ads.mInterstitialAd = null;
+                    Ads.loadInterstitialAd(HomeActivity.this);
+                    startActivity(new Intent(HomeActivity.this, ChatActivity.class)
+                            .putExtra("title", binding.lblTitle1.getText().toString())
+                            .putExtra("desc", binding.lblMsg1.getText().toString()));
+                }
+
+                @Override
+                public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
+                }
+
+                @Override
+                public void onAdShowedFullScreenContent() {
+                    Ads.mInterstitialAd = null;
+                }
+            });
+
+        } else {
+            startActivity(new Intent(this, ChatActivity.class)
+                    .putExtra("title", binding.lblTitle1.getText().toString())
+                    .putExtra("desc", binding.lblMsg1.getText().toString()));
+        }
     }
 
     public void onCrdChoose2(View view){
-        startActivity(new Intent(this, ChatActivity.class)
-                .putExtra("title", binding.lblTitle2.getText().toString())
-                .putExtra("desc", binding.lblMsg2.getText().toString()));
+        Constants.interShowCounter++;
+        if (Ads.mInterstitialAd != null && Constants.interShowCounter % Constants.counter == 0) {
+            Ads.mInterstitialAd.show(this);
+            Ads.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                @Override
+                public void onAdDismissedFullScreenContent() {
+                    Ads.mInterstitialAd = null;
+                    Ads.loadInterstitialAd(HomeActivity.this);
+                    startActivity(new Intent(HomeActivity.this, ChatActivity.class)
+                            .putExtra("title", binding.lblTitle2.getText().toString())
+                            .putExtra("desc", binding.lblMsg2.getText().toString()));
+                }
+
+                @Override
+                public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
+                }
+
+                @Override
+                public void onAdShowedFullScreenContent() {
+                    Ads.mInterstitialAd = null;
+                }
+            });
+
+        } else {
+            startActivity(new Intent(this, ChatActivity.class)
+                    .putExtra("title", binding.lblTitle2.getText().toString())
+                    .putExtra("desc", binding.lblMsg2.getText().toString()));
+        }
     }
 
     public void onCrdChoose3(View view){
-        startActivity(new Intent(this, ChatActivity.class)
-                .putExtra("title", binding.lblTitle3.getText().toString())
-                .putExtra("desc", binding.lblMsg3.getText().toString()));
+        Constants.interShowCounter++;
+        if (Ads.mInterstitialAd != null && Constants.interShowCounter % Constants.counter == 0) {
+            Ads.mInterstitialAd.show(this);
+            Ads.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                @Override
+                public void onAdDismissedFullScreenContent() {
+                    Ads.mInterstitialAd = null;
+                    Ads.loadInterstitialAd(HomeActivity.this);
+                    startActivity(new Intent(HomeActivity.this, ChatActivity.class)
+                            .putExtra("title", binding.lblTitle3.getText().toString())
+                            .putExtra("desc", binding.lblMsg3.getText().toString()));
+                }
+
+                @Override
+                public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
+                }
+
+                @Override
+                public void onAdShowedFullScreenContent() {
+                    Ads.mInterstitialAd = null;
+                }
+            });
+
+        } else {
+            startActivity(new Intent(this, ChatActivity.class)
+                    .putExtra("title", binding.lblTitle3.getText().toString())
+                    .putExtra("desc", binding.lblMsg3.getText().toString()));
+        }
     }
 
     public void onCrdChoose4(View view){
-        startActivity(new Intent(this, ChatActivity.class)
-                .putExtra("title", binding.lblTitle4.getText().toString())
-                .putExtra("desc", binding.lblMsg4.getText().toString()));
+        Constants.interShowCounter++;
+        if (Ads.mInterstitialAd != null && Constants.interShowCounter % Constants.counter == 0) {
+            Ads.mInterstitialAd.show(this);
+            Ads.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                @Override
+                public void onAdDismissedFullScreenContent() {
+                    Ads.loadInterstitialAd(HomeActivity.this);
+                    startActivity(new Intent(HomeActivity.this, ChatActivity.class)
+                            .putExtra("title", binding.lblTitle4.getText().toString())
+                            .putExtra("desc", binding.lblMsg4.getText().toString()));
+                }
+
+                @Override
+                public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
+                }
+
+                @Override
+                public void onAdShowedFullScreenContent() {
+                    Ads.mInterstitialAd = null;
+                }
+            });
+
+        } else {
+            startActivity(new Intent(this, ChatActivity.class)
+                    .putExtra("title", binding.lblTitle4.getText().toString())
+                    .putExtra("desc", binding.lblMsg4.getText().toString()));
+        }
     }
 
     public void onCrdChoose5(View view){
-        startActivity(new Intent(this, ChatActivity.class)
-                .putExtra("title", binding.lblTitle5.getText().toString())
-                .putExtra("desc", binding.lblMsg5.getText().toString()));
-    }
+        Constants.interShowCounter++;
+        if (Ads.mInterstitialAd != null && Constants.interShowCounter % Constants.counter == 0) {
+            Ads.mInterstitialAd.show(this);
+            Ads.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                @Override
+                public void onAdDismissedFullScreenContent() {
+                    Ads.loadInterstitialAd(HomeActivity.this);
+                    startActivity(new Intent(HomeActivity.this, ChatActivity.class)
+                            .putExtra("title", binding.lblTitle5.getText().toString())
+                            .putExtra("desc", binding.lblMsg5.getText().toString()));
+                }
 
-    public void onClickCoins(View view){
-        AlertDialogueUtils.showCoinsAlert(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+                @Override
+                public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
+                }
 
-                    }
-                },new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+                @Override
+                public void onAdShowedFullScreenContent() {
+                    Ads.mInterstitialAd = null;
+                }
+            });
 
-                    }
-                }, this);
+        } else {
+            startActivity(new Intent(this, ChatActivity.class)
+                    .putExtra("title", binding.lblTitle5.getText().toString())
+                    .putExtra("desc", binding.lblMsg5.getText().toString()));
+        }
     }
 
     @Override
@@ -159,29 +267,31 @@ public class HomeActivity extends AppCompatActivity implements GenresAdapter.Cal
         }
     }
 
-//    private PurchasesUpdatedListener purchasesUpdatedListener = new PurchasesUpdatedListener() {
-//        @Override
-//        public void onPurchasesUpdated(BillingResult billingResult, List<Purchase> purchases) {
-//            if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK
-//                    && purchases != null) {
-//                for (Purchase purchase : purchases) {
-////                    handlePurchase(purchase);
-//                }
-//            } else if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.USER_CANCELED) {
-//                // Handle an error caused by a user cancelling the purchase flow.
-//            } else {
-//                // Handle any other error codes.
-//            }
-//        }
-//    };
-
-//    private BillingClient billingClient = BillingClient.newBuilder(this)
-//            .setListener(purchasesUpdatedListener)
-//            .enablePendingPurchases()
-//            .build();
-
     public void onClickMessage(View view){
-        startActivity(new Intent(this, ChatActivity.class));
+        Constants.interShowCounter++;
+        if (Ads.mInterstitialAd != null && Constants.interShowCounter % Constants.counter == 0) {
+            Ads.mInterstitialAd.show(this);
+            Ads.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                @Override
+                public void onAdDismissedFullScreenContent() {
+                    Ads.mInterstitialAd = null;
+                    Ads.loadInterstitialAd(HomeActivity.this);
+                    startActivity(new Intent(HomeActivity.this, ChatActivity.class));
+                }
+
+                @Override
+                public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
+                }
+
+                @Override
+                public void onAdShowedFullScreenContent() {
+                    Ads.mInterstitialAd = null;
+                }
+            });
+
+        } else {
+            startActivity(new Intent(this, ChatActivity.class));
+        }
     }
 
     private void initTaskViewData(int index){
@@ -260,5 +370,30 @@ public class HomeActivity extends AppCompatActivity implements GenresAdapter.Cal
     @Override
     public void onCallBack(int position) {
         initTaskViewData(position);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(Ads.mInterstitialAd != null){
+            Ads.mInterstitialAd.show(this);
+            Ads.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                @Override
+                public void onAdDismissedFullScreenContent() {
+                    finish();
+                }
+
+                @Override
+                public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
+                }
+
+                @Override
+                public void onAdShowedFullScreenContent() {
+                    Ads.mInterstitialAd = null;
+                }
+            });
+        }
+        else {
+            super.onBackPressed();
+        }
     }
 }

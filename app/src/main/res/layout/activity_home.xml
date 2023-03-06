@@ -77,7 +77,7 @@
             android:scrollbars="none"
             app:layout_constraintTop_toBottomOf="@+id/lolToolbar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/colMessage">
+            app:layout_constraintBottom_toTopOf="@+id/bottomView">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -112,7 +112,7 @@
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     app:layout_constraintTop_toBottomOf="@+id/rvGenres"
                     app:layout_constraintStart_toStartOf="parent"/>
 
@@ -128,7 +128,6 @@
                     android:textColor="@color/primary"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    android:layout_marginTop="5dp"
                     app:layout_constraintTop_toBottomOf="@+id/rvGenres"
                     app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -137,8 +136,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintTop_toBottomOf="@id/lblHistory"/>
+                    app:layout_constraintTop_toBottomOf="@id/lblMore"/>
 
                 <TextView
                     android:id="@+id/lblChooseTask"
@@ -149,7 +147,7 @@
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     app:layout_constraintTop_toBottomOf="@+id/rvHistory"
                     app:layout_constraintStart_toStartOf="parent"/>
 
@@ -459,39 +457,55 @@
         </ScrollView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/colMessage"
+            android:id="@+id/bottomView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="onClickMessage"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             app:layout_constraintTop_toBottomOf="@+id/scMain"
-            android:background="@drawable/rectangle_outline"
             app:layout_constraintBottom_toBottomOf="parent">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/colMessage"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Write a message"
-                android:paddingVertical="20dp"
-                android:layout_marginStart="20dp"
-                android:textSize="18sp"
-                android:textColor="@color/black"
+                android:background="@drawable/rectangle_outline"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="onClickMessage"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintBottom_toTopOf="@+id/nativeAdPlaceHolder">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/baseline_send"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Write a message"
+                    android:paddingVertical="20dp"
+                    android:layout_marginStart="20dp"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_send"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <FrameLayout
+                android:id="@+id/nativeAdPlaceHolder"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

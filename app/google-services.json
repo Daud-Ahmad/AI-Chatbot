@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "951968655735",
+    "firebase_url": "https://openaichat-e2b17-default-rtdb.firebaseio.com",
+    "project_id": "openaichat-e2b17",
+    "storage_bucket": "openaichat-e2b17.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951968655735:android:e4e35f76c90247578c9972",
+        "android_client_info": {
+          "package_name": "com.openaibot.gpt.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951968655735-ua7uu005fk29t3e7en3o811pnh5dvprr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAaKIou1rglxZaAVWDCBn2qyVRqfoiZPU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951968655735-ua7uu005fk29t3e7en3o811pnh5dvprr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

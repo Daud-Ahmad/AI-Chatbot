@@ -19,6 +19,6 @@ public class SharePreferences {
         if(preferences == null){
             preferences = PreferenceManager.getDefaultSharedPreferences(context);
         }
-        return preferences.getString(key, "3");
+        return preferences.getString(key, "1");
     }
 }
