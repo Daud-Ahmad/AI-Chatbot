@@ -16,6 +16,12 @@ import com.openaibot.gpt.chat.utils.Constants;
 
 public class BaseActivity extends AppCompatActivity {
 
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        checkUpdate();
+    }
+
     public void checkUpdate(){
         AlertDialogueUtils.hideUpdateDialogue();
         if(Constants.is_new_version.equalsIgnoreCase("true")){

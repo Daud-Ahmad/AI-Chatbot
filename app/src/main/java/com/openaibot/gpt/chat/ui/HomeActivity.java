@@ -1,12 +1,16 @@
 package com.openaibot.gpt.chat.ui;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -28,6 +32,7 @@ public class HomeActivity extends BaseActivity implements GenresAdapter.CallBack
 
     private ActivityHomeBinding binding;
     private HistoryAdapter historyAdapter;
+    public int NOTIFICATION_REQUEST_CODE = 12;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,8 @@ public class HomeActivity extends BaseActivity implements GenresAdapter.CallBack
                 .into(binding.gift);
 
         Ads.loadNativeAds(this, binding.nativeAdPlaceHolder);
+
+        isNotificationPermissionGranted();
 
         binding.rvHistory.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         historyAdapter = new HistoryAdapter(this);
@@ -400,6 +407,19 @@ public class HomeActivity extends BaseActivity implements GenresAdapter.CallBack
         }
         else {
             super.onBackPressed();
+        }
+    }
+
+    public boolean isNotificationPermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 33) {
+            if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
+                return true;
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, NOTIFICATION_REQUEST_CODE);
+                return false;
+            }
+        } else {
+            return true;
         }
     }
 }

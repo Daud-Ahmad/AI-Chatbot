@@ -42,12 +42,15 @@ public class FirebaseMessagingServices extends FirebaseMessagingService{
 
     private void sendNotification(
             RemoteMessage.Notification notification, Map<String, String> data) {
+        String myCustomKey = data.get("new_app_link");
         Bundle bundle = new Bundle();
         bundle.putString(FCM_PARAM, data.get(FCM_PARAM));
         Intent intent = new Intent(this, SplashActivity.class);
         intent.putExtras(bundle);
+        intent.putExtra("new_app_link", myCustomKey);
         PendingIntent pendingIntent =
                 PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(this, getString(R.string.notification_channel_id))
                         .setContentTitle(notification.getTitle())
@@ -91,7 +94,6 @@ public class FirebaseMessagingServices extends FirebaseMessagingService{
             assert(notificationManager != null);
             notificationManager.createNotificationChannel(channel);
         }
-        assert(notificationManager != null);
         notificationManager.notify(0, notificationBuilder.build());
     }
 }

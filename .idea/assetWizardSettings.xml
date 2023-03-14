@@ -67,6 +67,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
+                                                <entry key="color" value="000000" />
                                                 <entry key="imagePath" value="/private/var/folders/nk/6n1y4xh140z174s0td94w6bm0000gn/T/ic_android_black_24dp.xml" />
                                               </map>
                                             </option>
@@ -79,8 +80,8 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="$PROJECT_DIR$/../Downloads/Chapgpt.jpg" />
-                                                <entry key="scalingPercent" value="48" />
+                                                <entry key="imagePath" value="$PROJECT_DIR$/../Downloads/Chat Gpt.jpg" />
+                                                <entry key="scalingPercent" value="61" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -113,7 +114,7 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="f0f0ee" />
+                                      <entry key="backgroundColor" value="a649c8" />
                                     </map>
                                   </option>
                                 </PersistentState>

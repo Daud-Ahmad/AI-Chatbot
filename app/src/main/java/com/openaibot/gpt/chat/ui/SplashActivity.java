@@ -32,12 +32,17 @@ import java.util.ArrayList;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private boolean isCallUpdate = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        String app_link = getIntent().getStringExtra("new_app_link");
+        if(app_link != null && !app_link.isEmpty()){
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + app_link)));
+            finish();
+            return;
+        }
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -129,7 +134,6 @@ public class SplashActivity extends AppCompatActivity {
                                 new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
-                                        isCallUpdate = true;
                                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
                                     }
                                 }, SplashActivity.this
@@ -158,16 +162,16 @@ public class SplashActivity extends AppCompatActivity {
         }, 3000);
     }
 
-    @Override
-    protected void onPostResume() {
-        super.onPostResume();
-        if(isCallUpdate){
-            isCallUpdate = false;
-            if(Constants.new_version.equals(BuildConfig.VERSION_NAME)){
-                AlertDialogueUtils.hideUpdateDialogue();
-                startActivity(new Intent(SplashActivity.this, HomeActivity.class));
-                finish();
-            }
-        }
-    }
+//    @Override
+//    protected void onPostResume() {
+//        super.onPostResume();
+//        if(isCallUpdate){
+//            isCallUpdate = false;
+//            if(Constants.new_version.equals(BuildConfig.VERSION_NAME)){
+//                AlertDialogueUtils.hideUpdateDialogue();
+//                startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+//                finish();
+//            }
+//        }
+//    }
 }

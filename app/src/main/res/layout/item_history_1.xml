@@ -112,6 +112,7 @@
                         android:layout_height="30dp"
                         android:gravity="center"
                         android:background="@drawable/rectangle_selected1"
+                        android:backgroundTint="@color/icon_color"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent">
 

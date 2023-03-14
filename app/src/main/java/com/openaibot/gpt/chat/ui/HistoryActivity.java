@@ -30,10 +30,4 @@ public class HistoryActivity extends BaseActivity {
     public void onBtnBack(View view){
         finish();
     }
-
-    @Override
-    protected void onPostResume() {
-        super.onPostResume();
-        checkUpdate();
-    }
 }
