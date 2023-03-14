@@ -3,16 +3,16 @@
     <string name="remaining_messages">remaining messages</string>
 
     <!--    testing ads-->
-    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="native_advance">ca-app-pub-3940256099942544/2247696110</string>
-    <string name="inter_ad">ca-app-pub-3940256099942544/1033173712</string>
-    <string name="reward_video_ad">ca-app-pub-3940256099942544/5224354917</string>
+<!--    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>-->
+<!--    <string name="native_advance">ca-app-pub-3940256099942544/2247696110</string>-->
+<!--    <string name="inter_ad">ca-app-pub-3940256099942544/1033173712</string>-->
+<!--    <string name="reward_video_ad">ca-app-pub-3940256099942544/5224354917</string>-->
 
     <!--    real ads-->
-<!--        <string name="app_id">ca-app-pub-9740873141880914~6505385328</string>-->
-<!--        <string name="native_advance">ca-app-pub-9740873141880914/8752274712</string>-->
-<!--        <string name="inter_ad">ca-app-pub-9740873141880914/5331904456</string>-->
-<!--        <string name="reward_video_ad">ca-app-pub-9740873141880914/4234445202</string>-->
+        <string name="app_id">ca-app-pub-9740873141880914~6505385328</string>
+        <string name="native_advance">ca-app-pub-9740873141880914/8752274712</string>
+        <string name="inter_ad">ca-app-pub-9740873141880914/5331904456</string>
+        <string name="reward_video_ad">ca-app-pub-9740873141880914/4234445202</string>
 
     <string name="edu_title_1">Create short essays</string>
     <string name="edu_desc_1">An essay is created specially for you</string>

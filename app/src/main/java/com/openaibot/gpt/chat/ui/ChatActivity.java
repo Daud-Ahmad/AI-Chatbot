@@ -122,11 +122,6 @@ public class ChatActivity extends BaseActivity {
             return;
         }
 
-        Constants.totalCoins = Constants.totalCoins - 1;
-        String coins = Constants.totalCoins + " " + getString(R.string.remaining_messages);
-        binding.lblCoins.setText(coins);
-        SharePreferences.saveString(this, Constants.COINS_KEY, String.valueOf(Constants.totalCoins));
-
         binding.txtChat.setText("");
         binding.btnSend.setEnabled(false);
         hideSoftKeyboard();
@@ -154,6 +149,10 @@ public class ChatActivity extends BaseActivity {
             @Override
             public void onResponse(@NotNull Call<ChatRes> call, @NotNull Response<ChatRes> response) {
                 if (response.isSuccessful()) {
+                    Constants.totalCoins = Constants.totalCoins - 1;
+                    String coins = Constants.totalCoins + " " + getString(R.string.remaining_messages);
+                    binding.lblCoins.setText(coins);
+                    SharePreferences.saveString(ChatActivity.this, Constants.COINS_KEY, String.valueOf(Constants.totalCoins));
                     ChatRes chatRes = response.body();
                     String answer = chatRes.getChoices().get(0).getText();
                     binding.btnSend.setEnabled(true);
@@ -183,13 +182,19 @@ public class ChatActivity extends BaseActivity {
                     }.start();
                 }
                 else {
-                    Toast.makeText(ChatActivity.this, "Sorry. Getting error. please try again.", Toast.LENGTH_LONG).show();
+                    binding.btnSend.setEnabled(true);
+                    arrayList.get(arrayList.size() -1).setLoading(false);
+                    arrayList.get(arrayList.size() -1).setLabelText("Sorry. Getting error. please try again.");
+                    chatAdapter.notifyItemChanged(arrayList.size() -1);
                 }
             }
 
             @Override
             public void onFailure(@NotNull Call<ChatRes> call, @NotNull Throwable t) {
-                Toast.makeText(ChatActivity.this, "Sorry. Getting error. please try again.", Toast.LENGTH_LONG).show();
+                binding.btnSend.setEnabled(true);
+                arrayList.get(arrayList.size() -1).setLoading(false);
+                arrayList.get(arrayList.size() -1).setLabelText("Sorry. Getting error. please try again.");
+                chatAdapter.notifyItemChanged(arrayList.size() -1);
             }
         });
     }
