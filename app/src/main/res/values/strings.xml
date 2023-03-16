@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CHATGDT</string>
+    <string name="app_name">Chat GPT</string>
     <string name="remaining_messages">remaining messages</string>
 
     <!--    testing ads-->

@@ -1,5 +1,11 @@
 package com.openaibot.gpt.chat.models;
 
+import androidx.annotation.Keep;
+
+import com.google.firebase.database.IgnoreExtraProperties;
+
+@IgnoreExtraProperties
+@Keep
 public class FirebaseDataModel {
     String token;
     String rv_coin;

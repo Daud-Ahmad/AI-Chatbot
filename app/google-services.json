@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "951968655735",
-    "firebase_url": "https://openaichat-e2b17-default-rtdb.firebaseio.com",
-    "project_id": "openaichat-e2b17",
-    "storage_bucket": "openaichat-e2b17.appspot.com"
+    "project_number": "135012046323",
+    "firebase_url": "https://chat-gpt-app-3a919-default-rtdb.firebaseio.com",
+    "project_id": "chat-gpt-app-3a919",
+    "storage_bucket": "chat-gpt-app-3a919.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:951968655735:android:e4e35f76c90247578c9972",
+        "mobilesdk_app_id": "1:135012046323:android:fa6b7f7dde89ee7459ee86",
         "android_client_info": {
           "package_name": "com.openaibot.gpt.chat"
         }
       },
       "oauth_client": [
         {
-          "client_id": "951968655735-ua7uu005fk29t3e7en3o811pnh5dvprr.apps.googleusercontent.com",
+          "client_id": "135012046323-isoe8e7it1ig9css49g8riu6ncdcpq9a.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDAaKIou1rglxZaAVWDCBn2qyVRqfoiZPU"
+          "current_key": "AIzaSyAZH-Va64UwLLgZpEqyfxjx3_fMKfk8R7c"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "951968655735-ua7uu005fk29t3e7en3o811pnh5dvprr.apps.googleusercontent.com",
+              "client_id": "135012046323-isoe8e7it1ig9css49g8riu6ncdcpq9a.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

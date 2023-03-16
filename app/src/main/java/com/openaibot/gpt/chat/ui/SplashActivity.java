@@ -89,7 +89,9 @@ public class SplashActivity extends AppCompatActivity {
                     }
 
                     try {
-                        Constants.token = "Bearer " + firebaseDataModel.getToken();
+                        if(firebaseDataModel.getToken() != null && firebaseDataModel.getToken().length() > 5){
+                            Constants.token = "Bearer " + firebaseDataModel.getToken();
+                        }
                     }
                     catch (Exception e){}
                     try {

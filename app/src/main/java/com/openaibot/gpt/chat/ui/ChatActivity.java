@@ -81,7 +81,7 @@ public class ChatActivity extends BaseActivity {
         }
 
         int rating = Integer.parseInt(SharePreferences.getString(this, Constants.RATING_KEY));
-        if(rating % 5 == 0){
+        if((rating % 5) == 0){
             askRatings();
         }
 

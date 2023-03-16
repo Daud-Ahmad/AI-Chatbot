@@ -5,7 +5,7 @@ import com.openaibot.gpt.chat.models.HistoryModel;
 import java.util.ArrayList;
 
 public class Constants {
-    public static String token = "";
+    public static String token = "Bearer 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";
 
     public static final String ONE_DOLLAR_PRODUCT_ID = "dollar.1_product";
 
