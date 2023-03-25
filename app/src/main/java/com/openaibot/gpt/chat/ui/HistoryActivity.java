@@ -20,7 +20,7 @@ public class HistoryActivity extends BaseActivity {
 
         ActivityHistoryBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_history);
 
-        Ads.loadNativeAds(this, binding.nativeAdPlaceHolder);
+//        Ads.loadNativeAds(this, binding.nativeAdPlaceHolder);
 
         binding.rvHistory.setLayoutManager(new LinearLayoutManager(this));
         HistoryAdapter1 historyAdapter = new HistoryAdapter1(this);

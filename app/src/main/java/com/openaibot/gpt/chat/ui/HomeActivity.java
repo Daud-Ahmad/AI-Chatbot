@@ -43,7 +43,7 @@ public class HomeActivity extends BaseActivity implements GenresAdapter.CallBack
                 .load(R.drawable.gift)
                 .into(binding.gift);
 
-        Ads.loadNativeAds(this, binding.nativeAdPlaceHolder);
+//        Ads.loadNativeAds(this, binding.nativeAdPlaceHolder);
 
         isNotificationPermissionGranted();
 
