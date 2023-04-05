@@ -18,12 +18,14 @@ public class FirebaseDataModel {
     String is_new_version;
     String new_version;
 
+    String is_inter_for_reward;
+
     public FirebaseDataModel() {
     }
 
     public FirebaseDataModel(String token, String rv_coin, String one_coin, String five_coin,
-                             String eight_coin, String counter, String is_app_blocked,
-                             String app_link, String is_new_version, String new_version) {
+                             String eight_coin, String counter, String is_app_blocked, String app_link,
+                             String is_new_version, String new_version, String is_inter_for_reward) {
         this.token = token;
         this.rv_coin = rv_coin;
         this.one_coin = one_coin;
@@ -34,6 +36,15 @@ public class FirebaseDataModel {
         this.app_link = app_link;
         this.is_new_version = is_new_version;
         this.new_version = new_version;
+        this.is_inter_for_reward = is_inter_for_reward;
+    }
+
+    public String getIs_inter_for_reward() {
+        return is_inter_for_reward;
+    }
+
+    public void setIs_inter_for_reward(String is_inter_for_reward) {
+        this.is_inter_for_reward = is_inter_for_reward;
     }
 
     public String getIs_app_blocked() {

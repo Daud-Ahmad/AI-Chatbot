@@ -3,7 +3,6 @@ package com.openaibot.gpt.chat.utils;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -11,14 +10,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.google.android.gms.ads.OnUserEarnedRewardListener;
-import com.google.android.gms.ads.rewarded.RewardItem;
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.FullScreenContentCallback;
 import com.openaibot.gpt.chat.R;
 import com.openaibot.gpt.chat.SharePreferences;
 import com.openaibot.gpt.chat.databinding.DialogueCoinBinding;
 import com.openaibot.gpt.chat.databinding.DialogueLoadingBinding;
 import com.openaibot.gpt.chat.databinding.DialogueUpdateBinding;
-import com.openaibot.gpt.chat.ui.HomeActivity;
 import com.openaibot.gpt.chat.ui.PackagesActivity;
 
 public class AlertDialogueUtils {
@@ -39,6 +37,11 @@ public class AlertDialogueUtils {
 
             customAlertDialogueBinding.btnGetUnlimited.setOnClickListener(unlimitedListener);
             customAlertDialogueBinding.btnWatchAds.setOnClickListener(watchAdsListener);
+
+            if(!SharePreferences.getString(activity, Constants.is_inter_for_reward).equals("1") && Constants.totalCoins > 0){
+                customAlertDialogueBinding.actvTitle.setVisibility(View.GONE);
+                customAlertDialogueBinding.btnWatchAds.setVisibility(View.GONE);
+            }
 
             customAlertDialogueBinding.actvTitle.setText("Let's watch one video ad to earn " + Constants.rv_coin + " more messages");
             customAlertDialogueBinding.imageViewCancel.setOnClickListener(new View.OnClickListener() {
@@ -132,8 +135,44 @@ public class AlertDialogueUtils {
                     @Override
                     public void onClick(View view) {
                         AlertDialogueUtils.hideCoinsDialogue();
-                        showLoadingAlert(context);
-                        Ads.loadRewardedAd(context, lblCoins);
+                        if(Constants.is_inter_for_reward.equals("true") && Ads.mInterstitialAd != null){
+                            Ads.mInterstitialAd.show(context);
+                            Ads.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                                @Override
+                                public void onAdDismissedFullScreenContent() {
+                                    Ads.mInterstitialAd = null;
+                                    Ads.loadInterstitialAd(context);
+                                    SharePreferences.saveString(context, Constants.is_inter_for_reward, "true");
+                                    try {
+                                        Constants.totalCoins = Constants.totalCoins + Constants.rv_coin;
+                                        SharePreferences.saveString(context, Constants.COINS_KEY, String.valueOf(Constants.totalCoins));
+                                    }
+                                    catch (Exception e){}
+                                    try {
+                                        String value = Constants.totalCoins + " " + context.getString(R.string.remaining_messages);
+                                        lblCoins.setText(value);
+                                    }
+                                    catch (Exception e){}
+                                    try {
+                                        Toast.makeText(context, "Rewarded", Toast.LENGTH_SHORT).show();
+                                    }
+                                    catch (Exception e){}
+                                }
+
+                                @Override
+                                public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
+                                }
+
+                                @Override
+                                public void onAdShowedFullScreenContent() {
+                                    Ads.mInterstitialAd = null;
+                                }
+                            });
+                        }
+                        else {
+                            showLoadingAlert(context);
+                            Ads.loadRewardedAd(context, lblCoins);
+                        }
                     }
                 }, context);
     }

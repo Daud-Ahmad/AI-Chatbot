@@ -115,6 +115,8 @@ public class SplashActivity extends AppCompatActivity {
                         Constants.interShowCounter = Constants.counter - 1;
                     }
                     catch (Exception e){}
+
+                    Constants.is_inter_for_reward = firebaseDataModel.getIs_inter_for_reward();
                 }
                 catch (Exception e){
                     Log.e("", "");
@@ -142,7 +144,7 @@ public class SplashActivity extends AppCompatActivity {
                         );
                     }
                     else {
-                        startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+                        startActivity(new Intent(SplashActivity.this, LetGoActivity.class));
                         finish();
                     }
                 }
@@ -157,7 +159,7 @@ public class SplashActivity extends AppCompatActivity {
                     );
                 }
                 else {
-                    startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+                    startActivity(new Intent(SplashActivity.this, LetGoActivity.class));
                     finish();
                 }
             }
@@ -171,7 +173,7 @@ public class SplashActivity extends AppCompatActivity {
 //            isCallUpdate = false;
 //            if(Constants.new_version.equals(BuildConfig.VERSION_NAME)){
 //                AlertDialogueUtils.hideUpdateDialogue();
-//                startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+//                startActivity(new Intent(SplashActivity.this, LetGoActivity.class));
 //                finish();
 //            }
 //        }

@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.openaibot.gpt.chat.R;
+import com.openaibot.gpt.chat.SharePreferences;
 import com.openaibot.gpt.chat.databinding.ActivityHomeBinding;
 import com.openaibot.gpt.chat.models.GenresModel;
 import com.openaibot.gpt.chat.ui.adapters.GenresAdapter;
@@ -44,6 +45,7 @@ public class HomeActivity extends BaseActivity implements GenresAdapter.CallBack
                 .into(binding.gift);
 
 //        Ads.loadNativeAds(this, binding.nativeAdPlaceHolder);
+        Ads.loadBanner(binding.nativeAdPlaceHolder, this);
 
         isNotificationPermissionGranted();
 
@@ -66,8 +68,10 @@ public class HomeActivity extends BaseActivity implements GenresAdapter.CallBack
         binding.rvGenres.setAdapter(new GenresAdapter(arrayList,this, this));
 
         initTaskViewData(0);
-
-        askRatings();
+        int rating = Integer.parseInt(SharePreferences.getString(this, Constants.RATING_KEY));
+        if((rating % 20) == 0){
+            checkForUpdate();
+        }
     }
 
     public void onClickCoins(View view){
@@ -383,31 +387,6 @@ public class HomeActivity extends BaseActivity implements GenresAdapter.CallBack
     @Override
     public void onCallBack(int position) {
         initTaskViewData(position);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if(Ads.mInterstitialAd != null){
-            Ads.mInterstitialAd.show(this);
-            Ads.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
-                @Override
-                public void onAdDismissedFullScreenContent() {
-                    finish();
-                }
-
-                @Override
-                public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
-                }
-
-                @Override
-                public void onAdShowedFullScreenContent() {
-                    Ads.mInterstitialAd = null;
-                }
-            });
-        }
-        else {
-            super.onBackPressed();
-        }
     }
 
     public boolean isNotificationPermissionGranted() {

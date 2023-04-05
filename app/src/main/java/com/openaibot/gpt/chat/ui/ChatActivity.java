@@ -50,7 +50,7 @@ public class ChatActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_chat);
 
-        Ads.loadNativeAds(this, binding.nativeAdPlaceHolder);
+        Ads.loadBanner(binding.nativeAdPlaceHolder, this);
 
         Glide.with(this)
                 .load(R.drawable.gift)
@@ -79,12 +79,6 @@ public class ChatActivity extends BaseActivity {
         else {
             binding.colExample.setVisibility(View.GONE);
         }
-
-        int rating = Integer.parseInt(SharePreferences.getString(this, Constants.RATING_KEY));
-        if((rating % 5) == 0){
-            askRatings();
-        }
-
 
     }
 

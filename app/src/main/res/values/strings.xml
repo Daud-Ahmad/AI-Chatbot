@@ -7,12 +7,14 @@
 <!--    <string name="native_advance">ca-app-pub-3940256099942544/2247696110</string>-->
 <!--    <string name="inter_ad">ca-app-pub-3940256099942544/1033173712</string>-->
 <!--    <string name="reward_video_ad">ca-app-pub-3940256099942544/5224354917</string>-->
+<!--    <string name="bannerId">ca-app-pub-3940256099942544/6300978111</string>-->
 
     <!--    real ads-->
-        <string name="app_id">ca-app-pub-9740873141880914~6505385328</string>
-        <string name="native_advance">ca-app-pub-9740873141880914/8752274712</string>
-        <string name="inter_ad">ca-app-pub-9740873141880914/5331904456</string>
-        <string name="reward_video_ad">ca-app-pub-9740873141880914/4234445202</string>
+    <string name="app_id">ca-app-pub-9740873141880914~6505385328</string>
+    <string name="native_advance">ca-app-pub-9740873141880914/8752274712</string>
+    <string name="inter_ad">ca-app-pub-9740873141880914/5331904456</string>
+    <string name="reward_video_ad">ca-app-pub-9740873141880914/4234445202</string>
+    <string name="bannerId">ca-app-pub-9740873141880914/3080680011</string>
 
     <string name="edu_title_1">Create short essays</string>
     <string name="edu_desc_1">An essay is created specially for you</string>
@@ -75,4 +77,5 @@
 
     <string name="health_title_5">Drink water and stay hydrated</string>
     <string name="health_desc_5">Get tips about water for staying hydrated</string>
+    <string name="lets_go_messages">A large learning model is an artificial intelligence that is trained on vast amount of data that can predict what the next word in a sentence is.</string>
 </resources>

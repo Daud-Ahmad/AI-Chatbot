@@ -20,6 +20,11 @@ public class Constants {
 
     public static final String RATING_KEY = "app_rating_key";
 
+    public static String is_inter_for_reward = "false";
+
+    public static String inter_for_reward = "inter_for_reward";
+
+
     public static String is_app_blocked = "false";
     public static String app_link = "";
     public static String is_new_version = "false";

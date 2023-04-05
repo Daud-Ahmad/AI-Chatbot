@@ -38,27 +38,27 @@ public class Ads
 {
     public static InterstitialAd mInterstitialAd;
     public static RewardedAd rewardedAd;
-//    public static void loadBanner(FrameLayout frameLayout, Activity activity) {
-//        AdView adView = new AdView(activity);
-//        adView.setAdUnitId(activity.getString(R.string.));
-//        frameLayout.addView(adView);
-//        AdRequest adRequest =
-//                new AdRequest.Builder()
-//                        .build();
-//        AdSize adSize = Ads.getAdSize(activity);
-//        adView.setAdSize(adSize);
-//        adView.loadAd(adRequest);
-//    }
-//
-//    public static AdSize getAdSize(Activity context) {
-//        Display display = context.getWindowManager().getDefaultDisplay();
-//        DisplayMetrics outMetrics = new DisplayMetrics();
-//        display.getMetrics(outMetrics);
-//        float widthPixels = outMetrics.widthPixels;
-//        float density = outMetrics.density;
-//        int adWidth = (int) (widthPixels / density);
-//        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(context, adWidth);
-//    }
+    public static void loadBanner(FrameLayout frameLayout, Activity activity) {
+        AdView adView = new AdView(activity);
+        adView.setAdUnitId(activity.getString(R.string.bannerId));
+        frameLayout.addView(adView);
+        AdRequest adRequest =
+                new AdRequest.Builder()
+                        .build();
+        AdSize adSize = Ads.getAdSize(activity);
+        adView.setAdSize(adSize);
+        adView.loadAd(adRequest);
+    }
+
+    public static AdSize getAdSize(Activity context) {
+        Display display = context.getWindowManager().getDefaultDisplay();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        display.getMetrics(outMetrics);
+        float widthPixels = outMetrics.widthPixels;
+        float density = outMetrics.density;
+        int adWidth = (int) (widthPixels / density);
+        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(context, adWidth);
+    }
 
 //    public static void loadNativeAds(Activity context){
 //        VideoOptions videoOptions = new VideoOptions.Builder()
@@ -249,6 +249,7 @@ public class Ads
                                     SharePreferences.saveString(context, Constants.COINS_KEY, String.valueOf(Constants.totalCoins));
                                 }
                                 catch (Exception e){}
+                                SharePreferences.saveString(context, Constants.is_inter_for_reward, "true");
                                 try {
                                     String value = Constants.totalCoins + " " + context.getString(R.string.remaining_messages);
                                     lblCoins.setText(value);

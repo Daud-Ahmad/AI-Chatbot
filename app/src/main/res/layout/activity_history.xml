@@ -45,8 +45,8 @@
         <FrameLayout
             android:id="@+id/nativeAdPlaceHolder"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <androidx.recyclerview.widget.RecyclerView
