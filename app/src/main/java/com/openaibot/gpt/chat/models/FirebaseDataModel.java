@@ -20,12 +20,14 @@ public class FirebaseDataModel {
 
     String is_inter_for_reward;
 
+    String isAppCloseAdsShow;
+
     public FirebaseDataModel() {
     }
 
     public FirebaseDataModel(String token, String rv_coin, String one_coin, String five_coin,
                              String eight_coin, String counter, String is_app_blocked, String app_link,
-                             String is_new_version, String new_version, String is_inter_for_reward) {
+                             String is_new_version, String new_version, String is_inter_for_reward, String isAppCloseAdsShow) {
         this.token = token;
         this.rv_coin = rv_coin;
         this.one_coin = one_coin;
@@ -37,6 +39,7 @@ public class FirebaseDataModel {
         this.is_new_version = is_new_version;
         this.new_version = new_version;
         this.is_inter_for_reward = is_inter_for_reward;
+        this.isAppCloseAdsShow = isAppCloseAdsShow;
     }
 
     public String getIs_inter_for_reward() {
@@ -125,5 +128,13 @@ public class FirebaseDataModel {
 
     public void setCounter(String counter) {
         this.counter = counter;
+    }
+
+    public String getIsAppCloseAdsShow() {
+        return isAppCloseAdsShow;
+    }
+
+    public void setIsAppCloseAdsShow(String isAppCloseAdsShow) {
+        this.isAppCloseAdsShow = isAppCloseAdsShow;
     }
 }

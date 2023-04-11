@@ -10,8 +10,11 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        // Initialize the Mobile Ads SDK.
-        MobileAds.initialize(this, initializationStatus -> {
-        });
+        try {
+            // Initialize the Mobile Ads SDK.
+            MobileAds.initialize(this, initializationStatus -> {
+            });
+        }
+        catch (Exception e){}
     }
 }

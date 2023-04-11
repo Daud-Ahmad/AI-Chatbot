@@ -16,31 +16,31 @@
     <string name="reward_video_ad">ca-app-pub-9740873141880914/4234445202</string>
     <string name="bannerId">ca-app-pub-9740873141880914/3080680011</string>
 
-    <string name="edu_title_1">Create short essays</string>
-    <string name="edu_desc_1">An essay is created specially for you</string>
+    <string name="edu_title_1">Answering questions: </string>
+    <string name="edu_desc_1">Students and educators can ask me any question related to a subject, and I can provide them with accurate and relevant information.</string>
 
     <string name="notification_channel_id">CHATGDT_default</string>
 
-    <string name="edu_title_2">Paraphrase a passage</string>
-    <string name="edu_desc_2">Write your passage in other way with the same meaning</string>
+    <string name="edu_title_2">Language practice: </string>
+    <string name="edu_desc_2">I can be used to help students practice their language skills by generating writing prompts, providing feedback on their writing, or even engaging in conversation.</string>
 
-    <string name="edu_title_3">Correct your text</string>
-    <string name="edu_desc_3">Check any text for spelling and grammatical mistakes</string>
+    <string name="edu_title_3">Personalization: </string>
+    <string name="edu_desc_3">I can be used to personalize learning by creating individualized study plans based on a student\'s strengths and weaknesses</string>
 
-    <string name="edu_title_4">Check code</string>
-    <string name="edu_desc_4">Find error in any code</string>
+    <string name="edu_title_4">Research: </string>
+    <string name="edu_desc_4">I can help students and educators conduct research by providing access to a wide range of academic journals and publications.</string>
 
-    <string name="edu_title_5">Extract keyword in a passage</string>
-    <string name="edu_desc_5">Make a list of most important work in a text</string>
+    <string name="edu_title_5">Accessibility: </string>
+    <string name="edu_desc_5">I can be used to improve accessibility by providing text-to-speech capabilities for students who may have difficulty reading or by providing translations for students who are not fluent in the language of instruction.</string>
 
-    <string name="ent_title_1">Create a social post</string>
-    <string name="ent_desc_1">Describe your topic</string>
+    <string name="ent_title_1">Generating content:</string>
+    <string name="ent_desc_1">I can generate content for various mediums such as articles, scripts, and stories. For example, I can generate ideas for TV shows or movies, write articles about current events or celebrities, or even create fictional stories.</string>
 
-    <string name="ent_title_2">Prepare for a party</string>
-    <string name="ent_desc_2">Suggest activity in a hang-out with your friend</string>
+    <string name="ent_title_2">Recommending content:</string>
+    <string name="ent_desc_2">Based on a user\'s preferences, I can recommend movies, TV shows, books, or music that they may enjoy. By analyzing a user\'s past consumption and preferences, I can suggest content that is tailored to their tastes.</string>
 
-    <string name="ent_title_3">Convert text into emoji</string>
-    <string name="ent_desc_3">Describe the emoji you need</string>
+    <string name="ent_title_3">Creating chatbots:</string>
+    <string name="ent_desc_3">I can be used to create chatbots for social media or messaging platforms that can interact with users and provide entertainment. For example, a chatbot could engage users in trivia games, tell jokes or provide fun facts.</string>
 
     <string name="ent_title_4">Suggest something to entertain</string>
     <string name="ent_desc_4">Ask me if you cannot choose a movie to watch while having a meal</string>
@@ -48,34 +48,34 @@
     <string name="ent_title_5">Compose a song</string>
     <string name="ent_desc_5">Write a song\'s lyric on any topic</string>
 
-    <string name="idea_title_1">Create name for anything</string>
-    <string name="idea_desc_1">Create name for your product, pet or anything</string>
+    <string name="idea_title_1">Brainstorming:</string>
+    <string name="idea_desc_1"> I can be used to generate ideas for new products, services, or marketing campaigns. By analyzing data and identifying trends, I can suggest new and innovative ideas that can help businesses stay ahead of the competition.</string>
 
-    <string name="idea_title_2">Become a writer</string>
-    <string name="idea_desc_2">Write a story about anything</string>
+    <string name="idea_title_2">Market research:</string>
+    <string name="idea_desc_2">I can help businesses conduct market research by providing insights on consumer behavior, preferences, and attitudes. By analyzing online reviews, social media trends, and other data sources, I can help businesses make informed decisions about product development and marketing.</string>
 
-    <string name="idea_title_3">Become a outstanding marketer</string>
-    <string name="idea_desc_3">SEO writing, create script for promotion</string>
+    <string name="idea_title_3">Writing business plans:</string>
+    <string name="idea_desc_3">I can help entrepreneurs and startups write business plans that are well-researched and well-written. By analyzing industry trends, conducting market research, and identifying key performance indicators, I can help businesses create comprehensive plans that outline their goals, strategies, and tactics.</string>
 
     <string name="idea_title_4">Innovative idea for startup</string>
     <string name="idea_desc_4">Get a list of idea for start up</string>
 
-    <string name="idea_title_5">Promote your product</string>
-    <string name="idea_desc_5">You have innovative idea but how to make your product to the world?</string>
+    <string name="idea_title_5">Optimizing operations:</string>
+    <string name="idea_desc_5">I can help businesses optimize their operations by providing insights on supply chain management, logistics, and inventory control. By analyzing data on customer demand, production capacity.</string>
 
-    <string name="health_title_1">Build your own workout routine</string>
-    <string name="health_desc_1">Get a fitness program made especially for you</string>
+    <string name="health_title_1">Providing workout plans:</string>
+    <string name="health_desc_1">I can provide workout plans for individuals of different fitness levels and goals. By analyzing a user\'s fitness history and goals, I can create customized workout plans that incorporate different types of exercises and intensity levels.</string>
 
     <string name="health_title_2">Discover how many calories in food</string>
     <string name="health_desc_2">Name your food and describe how much quantity you eat</string>
 
-    <string name="health_title_3">How many calories you burn everyday</string>
-    <string name="health_desc_3">Describe your activity in a day</string>
+    <string name="health_title_3">Tracking progress:</string>
+    <string name="health_desc_3">I can help users track their fitness progress by providing real-time data analysis on their workouts, including metrics such as heart rate, distance, and calorie burn. This can help users see their progress and adjust their workout plans accordingly.</string>
 
-    <string name="health_title_4">Eat healthy meals</string>
-    <string name="health_desc_4">Get a list of healthy meals</string>
+    <string name="health_title_4">Recommending nutrition plans:</string>
+    <string name="health_desc_4">I can provide nutrition recommendations based on a user\'s fitness goals, dietary restrictions, and preferences. By analyzing a user\'s eating habits and nutrient intake, I can provide customized meal plans and recommendations that can help users meet their fitness goals.</string>
 
-    <string name="health_title_5">Drink water and stay hydrated</string>
-    <string name="health_desc_5">Get tips about water for staying hydrated</string>
+    <string name="health_title_5">Offering motivation and support: </string>
+    <string name="health_desc_5">I can offer motivational messages and support to help users stay on track with their fitness goals. By providing positive reinforcement and encouragement, I can help users maintain their commitment to their fitness routines.</string>
     <string name="lets_go_messages">A large learning model is an artificial intelligence that is trained on vast amount of data that can predict what the next word in a sentence is.</string>
 </resources>

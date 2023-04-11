@@ -44,11 +44,14 @@ public class SplashActivity extends AppCompatActivity {
             return;
         }
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
-            }
-        });
+        try {
+            MobileAds.initialize(this, new OnInitializationCompleteListener() {
+                @Override
+                public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
+                }
+            });
+        }
+        catch (Exception e){}
 
         Ads.loadInterstitialAd(this);
 
@@ -84,9 +87,9 @@ public class SplashActivity extends AppCompatActivity {
                         Constants.app_link = firebaseDataModel.getApp_link();
                         Constants.new_version = firebaseDataModel.getNew_version();
                     }
-                    catch (Exception e){
-                        Log.e("","");
-                    }
+                    catch (Exception e){}
+
+                    Constants.isAppCloseAdsShow = firebaseDataModel.getIsAppCloseAdsShow();
 
                     try {
                         if(firebaseDataModel.getToken() != null && firebaseDataModel.getToken().length() > 5){

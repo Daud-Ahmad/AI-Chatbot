@@ -13,6 +13,8 @@ import com.openaibot.gpt.chat.R;
 import com.openaibot.gpt.chat.utils.Ads;
 import com.openaibot.gpt.chat.utils.Constants;
 
+import java.util.Objects;
+
 public class LetGoActivity extends AppCompatActivity {
 
     @Override
@@ -50,7 +52,7 @@ public class LetGoActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if(Ads.mInterstitialAd != null){
+        if(Constants.isAppCloseAdsShow.equals("true") &&  Ads.mInterstitialAd != null){
             Ads.mInterstitialAd.show(this);
             Ads.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
                 @Override

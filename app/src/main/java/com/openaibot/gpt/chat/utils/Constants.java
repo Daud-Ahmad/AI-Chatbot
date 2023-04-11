@@ -22,7 +22,7 @@ public class Constants {
 
     public static String is_inter_for_reward = "false";
 
-    public static String inter_for_reward = "inter_for_reward";
+    public static String isAppCloseAdsShow = "true";
 
 
     public static String is_app_blocked = "false";
