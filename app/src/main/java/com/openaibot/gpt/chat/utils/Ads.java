@@ -249,7 +249,6 @@ public class Ads
                                     SharePreferences.saveString(context, Constants.COINS_KEY, String.valueOf(Constants.totalCoins));
                                 }
                                 catch (Exception e){}
-                                SharePreferences.saveString(context, Constants.is_inter_for_reward, "true");
                                 try {
                                     String value = Constants.totalCoins + " " + context.getString(R.string.remaining_messages);
                                     lblCoins.setText(value);

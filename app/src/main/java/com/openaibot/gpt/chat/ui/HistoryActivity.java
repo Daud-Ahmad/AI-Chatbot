@@ -3,7 +3,6 @@ package com.openaibot.gpt.chat.ui;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -20,7 +19,6 @@ public class HistoryActivity extends BaseActivity {
 
         ActivityHistoryBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_history);
 
-//        Ads.loadNativeAds(this, binding.nativeAdPlaceHolder);
         Ads.loadBanner(binding.nativeAdPlaceHolder, this);
 
         binding.rvHistory.setLayoutManager(new LinearLayoutManager(this));

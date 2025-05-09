@@ -3,13 +3,11 @@ package com.openaibot.gpt.chat.ui;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,7 +16,6 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.openaibot.gpt.chat.R;
-import com.openaibot.gpt.chat.SharePreferences;
 import com.openaibot.gpt.chat.databinding.ActivityHomeBinding;
 import com.openaibot.gpt.chat.models.GenresModel;
 import com.openaibot.gpt.chat.ui.adapters.GenresAdapter;
@@ -68,10 +65,6 @@ public class HomeActivity extends BaseActivity implements GenresAdapter.CallBack
         binding.rvGenres.setAdapter(new GenresAdapter(arrayList,this, this));
 
         initTaskViewData(0);
-        int rating = Integer.parseInt(SharePreferences.getString(this, Constants.RATING_KEY));
-        if((rating % 20) == 0){
-            checkForUpdate();
-        }
     }
 
     public void onClickCoins(View view){
@@ -263,9 +256,6 @@ public class HomeActivity extends BaseActivity implements GenresAdapter.CallBack
     @Override
     protected void onPostResume() {
         super.onPostResume();
-
-        checkUpdate();
-
         String coins = Constants.totalCoins + " " + getString(R.string.remaining_messages);
         binding.lblCoins.setText(coins);
         if(Constants.historyModelArrayList.size() == 0){

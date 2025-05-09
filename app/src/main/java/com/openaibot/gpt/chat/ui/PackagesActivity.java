@@ -1,19 +1,18 @@
 package com.openaibot.gpt.chat.ui;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
-
 import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.PurchaseInfo;
 import com.openaibot.gpt.chat.R;
 import com.openaibot.gpt.chat.SharePreferences;
-import com.openaibot.gpt.chat.databinding.ActivityHistoryBinding;
 import com.openaibot.gpt.chat.databinding.ActivityPackagesBinding;
 import com.openaibot.gpt.chat.utils.Constants;
 

@@ -85,7 +85,6 @@ public class ChatActivity extends BaseActivity {
     @Override
     protected void onPostResume() {
         super.onPostResume();
-        checkUpdate();
         String coins = Constants.totalCoins + " " + getString(R.string.remaining_messages);
         binding.lblCoins.setText(coins);
     }

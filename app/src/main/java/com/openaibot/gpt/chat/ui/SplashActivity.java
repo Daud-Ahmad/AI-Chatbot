@@ -1,14 +1,13 @@
 package com.openaibot.gpt.chat.ui;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
@@ -18,15 +17,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.openaibot.gpt.chat.BuildConfig;
+import com.openaibot.gpt.chat.R;
+import com.openaibot.gpt.chat.SharePreferences;
 import com.openaibot.gpt.chat.dao.BookmarkDatabase;
 import com.openaibot.gpt.chat.models.FirebaseDataModel;
 import com.openaibot.gpt.chat.models.HistoryModel;
 import com.openaibot.gpt.chat.utils.Ads;
-import com.openaibot.gpt.chat.utils.AlertDialogueUtils;
 import com.openaibot.gpt.chat.utils.Constants;
-import com.openaibot.gpt.chat.R;
-import com.openaibot.gpt.chat.SharePreferences;
 
 import java.util.ArrayList;
 
@@ -57,8 +54,6 @@ public class SplashActivity extends AppCompatActivity {
 
         Constants.totalCoins = Integer.parseInt(SharePreferences.getString(this, Constants.COINS_KEY));
         BookmarkDatabase mDatabase = BookmarkDatabase.Companion.getDatabase(this);
-        int ratingKey = Integer.parseInt(SharePreferences.getString(this, Constants.RATING_KEY));
-        SharePreferences.saveString(this, Constants.RATING_KEY, String.valueOf(ratingKey + 1));
 
         new Thread() {
             @Override
@@ -79,24 +74,8 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try {
-                    FirebaseDataModel firebaseDataModel = (FirebaseDataModel) dataSnapshot.getValue(FirebaseDataModel.class);
+                    FirebaseDataModel firebaseDataModel = dataSnapshot.getValue(FirebaseDataModel.class);
 
-                    try {
-                        Constants.is_new_version = firebaseDataModel.getIs_new_version();
-                        Constants.is_app_blocked = firebaseDataModel.getIs_app_blocked();
-                        Constants.app_link = firebaseDataModel.getApp_link();
-                        Constants.new_version = firebaseDataModel.getNew_version();
-                    }
-                    catch (Exception e){}
-
-                    Constants.isAppCloseAdsShow = firebaseDataModel.getIsAppCloseAdsShow();
-
-                    try {
-                        if(firebaseDataModel.getToken() != null && firebaseDataModel.getToken().length() > 5){
-                            Constants.token = "Bearer " + firebaseDataModel.getToken();
-                        }
-                    }
-                    catch (Exception e){}
                     try {
                         Constants.rv_coin = Integer.parseInt(firebaseDataModel.getRv_coin());
                     }
@@ -118,8 +97,6 @@ public class SplashActivity extends AppCompatActivity {
                         Constants.interShowCounter = Constants.counter - 1;
                     }
                     catch (Exception e){}
-
-                    Constants.is_inter_for_reward = firebaseDataModel.getIs_inter_for_reward();
                 }
                 catch (Exception e){
                     Log.e("", "");
@@ -135,50 +112,9 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(Constants.is_new_version.equalsIgnoreCase("true")){
-                    if(!Constants.new_version.isEmpty() && !Constants.new_version.equals(BuildConfig.VERSION_NAME)){
-                        AlertDialogueUtils.showUpdateAlert(
-                                new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
-                                    }
-                                }, SplashActivity.this
-                        );
-                    }
-                    else {
-                        startActivity(new Intent(SplashActivity.this, LetGoActivity.class));
-                        finish();
-                    }
-                }
-                else if(Constants.is_app_blocked.equalsIgnoreCase("true")){
-                    AlertDialogueUtils.showUpdateAlert(
-                            new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + Constants.app_link)));
-                                }
-                            }, SplashActivity.this
-                    );
-                }
-                else {
-                    startActivity(new Intent(SplashActivity.this, LetGoActivity.class));
-                    finish();
-                }
+                startActivity(new Intent(SplashActivity.this, LetGoActivity.class));
+                finish();
             }
         }, 3000);
     }
-
-//    @Override
-//    protected void onPostResume() {
-//        super.onPostResume();
-//        if(isCallUpdate){
-//            isCallUpdate = false;
-//            if(Constants.new_version.equals(BuildConfig.VERSION_NAME)){
-//                AlertDialogueUtils.hideUpdateDialogue();
-//                startActivity(new Intent(SplashActivity.this, LetGoActivity.class));
-//                finish();
-//            }
-//        }
-//    }
 }

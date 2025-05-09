@@ -37,12 +37,6 @@ public class AlertDialogueUtils {
 
             customAlertDialogueBinding.btnGetUnlimited.setOnClickListener(unlimitedListener);
             customAlertDialogueBinding.btnWatchAds.setOnClickListener(watchAdsListener);
-
-            if(!SharePreferences.getString(activity, Constants.is_inter_for_reward).equals("1") && Constants.totalCoins > 0){
-                customAlertDialogueBinding.actvTitle.setVisibility(View.GONE);
-                customAlertDialogueBinding.btnWatchAds.setVisibility(View.GONE);
-            }
-
             customAlertDialogueBinding.actvTitle.setText("Let's watch one video ad to earn " + Constants.rv_coin + " more messages");
             customAlertDialogueBinding.imageViewCancel.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -135,14 +129,13 @@ public class AlertDialogueUtils {
                     @Override
                     public void onClick(View view) {
                         AlertDialogueUtils.hideCoinsDialogue();
-                        if(Constants.is_inter_for_reward.equals("true") && Ads.mInterstitialAd != null){
+                        if(Ads.mInterstitialAd != null){
                             Ads.mInterstitialAd.show(context);
                             Ads.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
                                 @Override
                                 public void onAdDismissedFullScreenContent() {
                                     Ads.mInterstitialAd = null;
                                     Ads.loadInterstitialAd(context);
-                                    SharePreferences.saveString(context, Constants.is_inter_for_reward, "true");
                                     try {
                                         Constants.totalCoins = Constants.totalCoins + Constants.rv_coin;
                                         SharePreferences.saveString(context, Constants.COINS_KEY, String.valueOf(Constants.totalCoins));
